@@ -9,7 +9,7 @@ const initialState: ICountStore = {
 const reducer = createReducer<ICountStore>({}, initialState);
 reducer.on(actions.setCount, (state, data) => ({
   ...state,
-  count: data,
+  count: Number(data),
 }))
 
 export default reducer;

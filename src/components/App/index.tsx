@@ -4,17 +4,18 @@ import { RouteComponentProps } from 'react-router';
 import { Dispatch} from 'redux';
 import * as actions from '../../actions';
 import '../../styles/App.css';
+import { ISetCount } from '../../actions/count/types';
 
 interface IProps extends RouteComponentProps<any> {
   count: number;
-  setCount: (number: number) => any;
+  setCount: ({ count }: ISetCount) => void;
 }
 
 class App extends Component<IProps> {
 
-  increment = () => this.props.setCount(this.props.count + 1);
+  increment = () => this.props.setCount({ count: this.props.count + 1 });
 
-  decrement = () => this.props.setCount(this.props.count - 1)
+  decrement = () => this.props.setCount({ count: this.props.count - 1 })
 
   public render() {
     return (
@@ -47,7 +48,7 @@ const mapStateToProps = (store: any) => ({
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
-  setCount: (number: number) => dispatch(actions.setCountAction(number)),
+  setCount: ({ count }: ISetCount) => dispatch(actions.setCountAction({ count })),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

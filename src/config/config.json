@@ -1,0 +1,11 @@
+{
+  "development": {
+    "serverURL": "http://localhost:8000"
+  },
+  "production": {
+    "serverURL": "http://my-api.com"
+  },
+  "test": {
+    "serverURL": "http://localhost:8000"
+  }
+}

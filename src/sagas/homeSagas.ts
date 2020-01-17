@@ -3,7 +3,8 @@ import * as actions from '../actions';
 
 function* setCount({ payload }: any) {
     try {
-        yield put(actions.setCount(payload || 0));
+        const { count } = payload;
+        yield put(actions.setCount(count || 0));
     } catch (e) {
         console.error(e);
     }
