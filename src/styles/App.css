@@ -1,0 +1,25 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.myButton {
+  margin: 0 15px 0 15px;
+}
+
+.Content {
+  display: flex;
+  flex-direction: row;
+  margin-top: 35px;
+}
+
+.Top {
+  margin-top: 40px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: bold;
+}
