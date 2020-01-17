@@ -19,7 +19,7 @@ class App extends Component<IProps> {
   public render() {
     return (
       <div className="App">
-
+        <img className="logo" src={require('../../assets/top-logo.jpg')} />
         <div className="Top">
           <text className="title">Boilerplate</text>
         </div>
