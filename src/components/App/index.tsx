@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 import { RouteComponentProps } from 'react-router';
 import { Dispatch} from 'redux';
 import * as actions from '../../actions';
-import '../../styles/App.css';
 import { ISetCount } from '../../actions/count/types';
+import Content from '../../containers/Home/Content';
+import Header from '../../containers/Home/Header';
+import '../../styles/App.scss';
 
 interface IProps extends RouteComponentProps<any> {
   count: number;
@@ -18,26 +20,18 @@ class App extends Component<IProps> {
   decrement = () => this.props.setCount({ count: this.props.count - 1 })
 
   public render() {
+    const { count } = this.props;
+
     return (
       <div className="App">
-        <img className="logo" src={require('../../assets/top-logo.jpg')} />
-        <div className="Top">
-          <text className="title">Boilerplate</text>
-        </div>
+        <img src={require('../../assets/top-logo.jpg')} />
+        <Header title="Boilerplate"/>
+        <Content
+          count={count}
+          increment={this.increment}
+          decrement={this.decrement}
+        />
 
-        <div className="Content">
-          <button className="myButton" onClick={this.decrement}>
-            -
-          </button>
-
-          <span>
-            {this.props.count}
-          </span>
-          
-          <button className="myButton" onClick={this.increment}>
-            +
-          </button>
-        </div>
       </div>
     )
   }
